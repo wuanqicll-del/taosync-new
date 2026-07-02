@@ -1,4 +1,4 @@
-<h1 align="center">TaoSync</h1>
+<h1 align="center">taosync-new</h1>
 <p align="center">
   <em>TaoSync是一个适用于OpenList/AList v3+的自动化同步工具（改进版）。</em>
 </p>
