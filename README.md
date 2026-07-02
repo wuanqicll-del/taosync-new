@@ -102,7 +102,18 @@ docker-compose up -d
 
 默认登录信息：
 - 用户名：`admin`
-- 密码：`admin`（首次登录后请立即修改）
+- 密码：随机生成（首次启动时在日志中输出，请查看容器日志获取密码）
+
+**查看密码命令：**
+```bash
+# Docker
+docker logs taosync 2>&1 | grep "Password for admin"
+
+# Docker Compose
+docker-compose logs 2>&1 | grep "Password for admin"
+```
+
+登录后请立即前往系统设置修改密码。
 
 ## 配置项
 
@@ -199,7 +210,7 @@ docker-compose up -d
 
 ### 4. 忘记密码怎么办？
 
-删除 `data/` 目录下的数据库文件，重启服务会重置为默认密码。
+删除 `data/` 目录下的数据库文件，重启服务会重新生成随机密码（查看容器日志获取新密码）。
 
 ## 许可证
 
