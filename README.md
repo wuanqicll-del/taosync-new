@@ -1,14 +1,9 @@
 <div align="center">
   <p><em>TaoSync是一个适用于OpenList/AList v3+的自动化同步工具（改进版）。</em></p>
-  <div>
-    <a href="https://github.com/wuanqicll/taosync-new">
-      <img src="https://img.shields.io/github/v/release/wuanqicll/taosync-new?logo=github" alt="GitHub releases" />
-    </a>
-    <a href="https://hub.docker.com/r/wuanqicll/taosync-new">
-      <img src="https://img.shields.io/docker/pulls/wuanqicll/taosync-new?logo=docker&logoColor=white" alt="Docker pulls" />
-    </a>
-  </div>
 </div>
+
+[![GitHub releases](https://img.shields.io/github/v/release/wuanqicll/taosync-new?logo=github)](https://github.com/wuanqicll/taosync-new)
+[![Docker pulls](https://img.shields.io/docker/pulls/wuanqicll/taosync-new?logo=docker&logoColor=white)](https://hub.docker.com/r/wuanqicll/taosync-new)
 
 ---
 
