@@ -2,15 +2,15 @@
   <em>TaoSync是一个适用于OpenList/AList v3+的自动化同步工具（改进版）。</em>
 </p>
 <p align="center">
-  <a href="https://github.com/wuanqicll/taosync-new"><img src="https://img.shields.io/github/v/release/wuanqicll/taosync-new?logo=github" alt="GitHub releases" /></a>
-  <a href="https://hub.docker.com/r/wuanqicll/taosync-new"><img src="https://img.shields.io/docker/pulls/wuanqicll/taosync-new?logo=docker&logoColor=white" alt="Docker pulls" /></a>
+  <a href="https://github.com/wuanqicll-del/taosync-new"><img src="https://img.shields.io/github/v/release/wuanqicll-del/taosync-new?logo=github" alt="GitHub releases" /></a>
+  <a href="https://hub.docker.com/r/wuanqicll/taosync-new"><img src="https://img.shields.io/docker/pulls/wuanqicll-del/taosync-new?logo=docker&logoColor=white" alt="Docker pulls" /></a>
 </p>
 
 ---
 
 本项目基于[dr34m-cn/taosync](https://github.com/dr34m-cn/taosync)进行了大幅改进和优化。
 
-**如果好用，请Star！非常感谢！**  [GitHub](https://github.com/wuanqicll/taosync-new) [DockerHub](https://hub.docker.com/r/wuanqicll/taosync-new)
+**如果好用，请Star！非常感谢！**  [GitHub](https://github.com/wuanqicll-del/taosync-new) [DockerHub](https://hub.docker.com/r/wuanqicll/taosync-new)
 
 ## 改进内容
 
@@ -218,5 +218,5 @@ MIT License
 
 ## 项目地址
 
-* GitHub：https://github.com/wuanqicll/taosync-new
+* GitHub：https://github.com/wuanqicll-del/taosync-new
 * DockerHub：https://hub.docker.com/r/wuanqicll/taosync-new
