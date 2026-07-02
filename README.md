@@ -1,6 +1,6 @@
 <h1 align="center">taosync-new</h1>
 <p align="center">
-  <em>TaoSync是一个适用于OpenList/AList v3+的自动化同步工具（改进版）。</em>
+  <em>TaoSync-new是一个适用于OpenList/AList的自动化同步工具（重构版）。</em>
 </p>
 <p align="center">
   <a href="https://github.com/wuanqicll-del/taosync-new"><img src="https://img.shields.io/github/v/release/wuanqicll-del/taosync-new?logo=github" alt="GitHub releases" /></a>
@@ -9,7 +9,7 @@
 
 ---
 
-本项目基于[dr34m-cn/taosync](https://github.com/dr34m-cn/taosync)进行了大幅改进和优化。
+本项目基于[dr34m-cn/taosync](https://github.com/dr34m-cn/taosync)进行了大幅重构和新增功能。
 
 **如果好用，请Star！非常感谢！**  [GitHub](https://github.com/wuanqicll-del/taosync-new) [DockerHub](https://hub.docker.com/r/wuanqicll/taosync-new)
 
@@ -17,21 +17,11 @@
 
 相比原项目，本版本主要改进：
 
-* **技术栈升级**
-  * 后端：Python 3.11 + Tornado 6.5
-  * 前端：Vue 2.7 + Element UI 2.15
-  * 数据库：SQLite（更好的并发性能）
-
 * **功能增强**
   * 更稳定的同步引擎
   * 更好的错误处理和重试机制
-  * 更详细的日志记录
   * 更灵活的过滤规则
 
-* **部署优化**
-  * Docker多架构支持（AMD64/ARM64）
-  * 自动构建和发布
-  * 更小的镜像体积
 
 ## 用途举例
 
@@ -88,13 +78,16 @@ docker run -d \
 ```yaml
 services:
   taosync:
-    image: wuanqicll/taosync-new:latest
-    container_name: taosync
+    build: .
+    container_name: taosync-new
+    restart: always
+    network_mode: "bridge"
+    environment:
+      - TZ=Asia/Shanghai            
     ports:
       - "8023:8023"
     volumes:
-      - ./data:/app/data
-    restart: unless-stopped
+      - ./data:/app/data #数据本地化
 ```
 
 启动服务：
