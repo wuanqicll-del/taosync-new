@@ -59,16 +59,16 @@
 ### Docker部署（推荐）
 
 ```bash
-# 创建数据目录
+# 创建数据目录（用于持久化数据库和配置）
 mkdir -p /path/to/data
 
 # 运行容器
 docker run -d \
-  --name taosync \
-  -p 8023:8023 \
-  -v /path/to/data:/app/data \
-  --restart unless-stopped \
-  wuanqicll/taosync-new:latest
+  --name taosync \          # 容器名称
+  -p 8023:8023 \            # 端口映射：宿主机端口:容器端口
+  -v /path/to/data:/app/data \  # 数据卷挂载：宿主机目录:容器目录
+  --restart unless-stopped \    # 重启策略：除非手动停止，否则总是重启
+  wuanqicll/taosync-new:latest  # 镜像名称:标签
 ```
 
 ### Docker Compose部署
@@ -78,16 +78,16 @@ docker run -d \
 ```yaml
 services:
   taosync:
-    image: wuanqicll/taosync-new:latest
-    container_name: taosync-new
-    restart: always
-    network_mode: "bridge"
+    image: wuanqicll/taosync-new:latest  # 镜像名称:标签
+    container_name: taosync-new          # 容器名称
+    restart: always                      # 重启策略：总是重启
+    network_mode: "bridge"               # 网络模式：桥接模式
     environment:
-      - TZ=Asia/Shanghai            
+      - TZ=Asia/Shanghai                 # 时区设置：亚洲/上海
     ports:
-      - "8023:8023"
+      - "8023:8023"                      # 端口映射：宿主机端口:容器端口
     volumes:
-      - ./data:/app/data #数据本地化
+      - ./data:/app/data                 # 数据卷挂载：宿主机目录:容器目录（数据本地化）
 ```
 
 启动服务：
