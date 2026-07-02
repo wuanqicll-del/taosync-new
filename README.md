@@ -3,7 +3,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/wuanqicll-del/taosync-new"><img src="https://img.shields.io/github/v/release/wuanqicll-del/taosync-new?logo=github" alt="GitHub releases" /></a>
-  <a href="https://hub.docker.com/r/wuanqicll/taosync-new"><img src="https://img.shields.io/docker/pulls/wuanqicll-del/taosync-new?logo=docker&logoColor=white" alt="Docker pulls" /></a>
+  <a href="https://hub.docker.com/r/wuanqicll/taosync-new"><img src="https://img.shields.io/docker/pulls/wuanqicll/taosync-new?logo=docker&logoColor=white" alt="Docker pulls" /></a>
 </p>
 
 ---
