@@ -1,39 +1,88 @@
-# TaoSync - 文件同步工具
+<div align="center">
+  <a href=""><img width="200px" alt="logo" src="logo.ico"/></a>
+  <p><em>TaoSync是一个适用于OpenList/AList v3+的自动化同步工具（改进版）。</em></p>
+  <div>
+    <a href="https://github.com/wuanqicll-del/taosync-new/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/wuanqicll-del/taosync-new" alt="License" />
+    </a>
+    <a href="https://github.com/wuanqicll-del/taosync-new/actions/workflows/docker-publish.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/wuanqicll-del/taosync-new/docker-publish.yml?branch=main" alt="Build status" />
+    </a>
+    <a href="https://www.python.org/">
+      <img src="https://img.shields.io/badge/backend-python-326c9c.svg" alt="Python" />
+    </a>
+    <a href="https://vuejs.org/">
+      <img src="https://img.shields.io/badge/frontend-vue-42b883.svg" alt="Vue" />
+    </a>
+    <a href="https://github.com/wuanqicll-del/taosync-new/releases">
+      <img src="https://img.shields.io/github/release/wuanqicll-del/taosync-new" alt="latest version" />
+    </a>
+    <a href="https://hub.docker.com/r/wuanqicll-del/taosync-new">
+      <img src="https://img.shields.io/docker/pulls/wuanqicll-del/taosync-new?color=%2348BB78&logo=docker&label=pulls" alt="DockerHub" />
+    </a>
+  </div>
+</div>
 
-基于 Alist API 的文件同步工具，支持多源多目标目录、多种同步模式、定时任务、实时进度监控。
+---
 
-## 功能特点
+本项目基于[dr34m-cn/taosync](https://github.com/dr34m-cn/taosync)进行了大幅改进和优化。
 
-- **多种同步模式**
-  - 仅新增：只复制目标没有的文件
-  - 全同步：复制变化文件 + 删除目标多余文件
-  - 移动模式：复制后删除源文件
+**如果好用，请Star！非常感谢！**  [GitHub](https://github.com/wuanqicll-del/taosync-new) [DockerHub](https://hub.docker.com/r/wuanqicll-del/taosync-new)
 
-- **灵活的目录配置**
-  - 支持多个源目录
-  - 支持多个目标目录
-  - 支持子目录过滤
+## 改进内容
 
-- **智能过滤规则**
-  - 文件名通配符过滤（支持 Gitignore 语法）
-  - 文件大小过滤
-  - 文件时间过滤
+相比原项目，本版本主要改进：
 
-- **实时进度监控**
-  - SSE 实时推送进度
-  - 阶段化进度显示（扫描/创建目录/删除/同步）
+* **技术栈升级**
+  * 后端：Python 3.11 + Tornado 6.5
+  * 前端：Vue 2.7 + Element UI 2.15
+  * 数据库：SQLite（更好的并发性能）
 
-- **定时任务**
-  - 支持 Cron 表达式定时执行
-  - 支持手动触发
+* **功能增强**
+  * 更稳定的同步引擎
+  * 更好的错误处理和重试机制
+  * 更详细的日志记录
+  * 更灵活的过滤规则
 
-- **通知功能**
-  - 支持 ntfy 推送通知
-  - 同步完成/失败通知
+* **部署优化**
+  * Docker多架构支持（AMD64/ARM64）
+  * 自动构建和发布
+  * 更小的镜像体积
 
-## 快速开始
+## 用途举例
 
-### 使用 Docker（推荐）
+#### 1. 同步备份
+
+把本地文件备份到多个网盘或FTP之类的存储，或者在多个网盘之间同步文件等；
+
+可以定时扫描指定目录下文件差异，让目标目录与源目录相同（全同步模式）；或仅新增存在于源目录，却不存在于目标目录的文件（仅新增模式）
+
+#### 2. 定时下载
+
+可以设置一次性任务（`cron`方式设置年月日时分秒，将在指定时间执行一次），可在闲时自动从特定网盘下载文件到本地
+
+## 特性
+
+* 开源免费，接受任意审查
+* [Github Actions](https://docs.github.com/zh/actions)自动打包与发布，过程公开透明
+* 支持Docker，下载即用
+* 干净卸载，不用的时候删掉即可，无任何残留
+* 密码加密不可逆，永远不会泄露您的密码
+* 完全离线运行（仅连接AList），永不上传用户隐私
+* 完善的错误处理，稳定可靠
+* 完善的日志，所有错误都会被记录
+* 引擎管理，可以自由增删改查`OpenList/AList`
+* 作业管理，可以新增/删除/启用/禁用/编辑/手动执行作业
+* 支持排除项规则，可以排除指定目录或文件不同步
+* 仅新增、全同步、移动三种模式
+* 定时同步支持间隔、`cron`、手动调用
+* 同步进度、总体进度、同步速度、实时同步文件、预估时间等实时可视化查看
+* 存储可控，合理配置任务记录与日志保留天数
+* 支持通知功能，可在任务成功或失败后发送通知
+
+## 使用方法
+
+### Docker部署（推荐）
 
 ```bash
 # 创建数据目录
@@ -48,7 +97,7 @@ docker run -d \
   wuanqicll-del/taosync-new:latest
 ```
 
-### 使用 Docker Compose
+### Docker Compose部署
 
 创建 `docker-compose.yml`：
 
@@ -70,91 +119,85 @@ services:
 docker-compose up -d
 ```
 
-## 访问 WebUI
+### 访问WebUI
 
 打开浏览器访问：`http://你的IP:8023`
 
 默认登录信息：
 - 用户名：`admin`
-- 密码：`admin`
+- 密码：`admin`（首次登录后请立即修改）
 
-**首次登录后请立即修改密码！**
+## 配置项
 
-## 配置说明
+配置优先级：`data/config.ini` > `环境变量` > `默认值`
 
-### Alist 配置
+`data/config.ini`文件示例：
 
-在 WebUI 中添加 Alist 服务器：
-- 服务器地址：你的 Alist 服务地址
-- 令牌：Alist 的访问令牌
+```ini
+[tao]
+# 运行端口号
+port=8023
+# 登录有效期，单位天
+expires=2
+# 日志等级：0-DEBUG，1-INFO，2-WARNING，3-ERROR，4-CRITICAL
+log_level=1
+# 控制台日志等级
+console_level=2
+# 系统日志保留天数，0表示不自动清理
+log_save=7
+# 任务记录保留天数，0表示不自动清理
+task_save=0
+# 任务执行超时时间，单位小时
+task_timeout=72
+```
 
-### 同步任务配置
-
-1. **源目录配置**
-   - 选择 Alist 服务器
-   - 选择源目录路径
-   - 可添加多个源目录
-
-2. **目标目录配置**
-   - 选择目标目录路径
-   - 可添加多个目标目录
-
-3. **同步模式**
-   - 仅新增：只复制新文件
-   - 全同步：同步所有变化
-   - 移动模式：复制后删除源文件
-
-4. **过滤规则**
-   - 文件名过滤：支持通配符（如 `*.mp4`、`*.mkv`）
-   - 文件大小过滤：最小/最大文件大小
-   - 文件时间过滤：只同步指定时间后的文件
-
-5. **定时执行**
-   - 支持 Cron 表达式
-   - 示例：`0 2 * * *`（每天凌晨2点执行）
+| config.ini    | Docker环境变量    | 描述                                                         | 默认值        |
+| ------------- | ----------------- | ------------------------------------------------------------ | ------------- |
+| port          | TAO_PORT          | 运行端口号                                                   | 8023          |
+| expires       | TAO_EXPIRES       | 登录有效期，单位天                                           | 2             |
+| log_level     | TAO_LOG_LEVEL     | 日志等级：0-DEBUG，1-INFO，2-WARNING，3-ERROR，4-CRITICAL     | 1             |
+| console_level | TAO_CONSOLE_LEVEL | 控制台日志等级                                               | 2             |
+| log_save      | TAO_LOG_SAVE      | 系统日志保留天数，0表示不自动清理                            | 7             |
+| task_save     | TAO_TASK_SAVE     | 任务记录保留天数，0表示不自动清理                            | 0             |
+| task_timeout  | TAO_TASK_TIMEOUT  | 任务执行超时时间，单位小时                                   | 72            |
+| -             | TZ                | 时区                                                         | Asia/Shanghai |
 
 ## 技术栈
 
-- **后端**
-  - Python 3.11
-  - Tornado Web 框架
-  - SQLite 数据库
-  - APScheduler 定时任务
+* **后端**
+  * Python 3.11
+  * Tornado 6.5 Web框架
+  * SQLite数据库
+  * APScheduler定时任务
 
-- **前端**
-  - Vue.js 2
-  - Element UI
-  - Vuex 状态管理
-  - Vue Router 路由管理
+* **前端**
+  * Vue.js 2.7
+  * Element UI 2.15
+  * Vuex状态管理
+  * Vue Router路由管理
 
-- **部署**
-  - Docker 容器化
-  - 多架构支持（AMD64/ARM64）
+* **部署**
+  * Docker容器化
+  * 多架构支持（AMD64/ARM64）
+  * GitHub Actions自动构建
 
 ## 目录结构
 
 ```
 taosync/
 ├── common/          # 公共工具类
-├── controller/      # API 控制器
+├── controller/      # API控制器
 ├── frontend/        # 前端源码
 ├── mapper/          # 数据库映射
 ├── service/         # 业务逻辑
-│   ├── alist/       # Alist API 服务
+│   ├── alist/       # Alist API服务
 │   ├── notify/      # 通知服务
 │   ├── syncJob/     # 同步任务服务
 │   └── system/      # 系统服务
 ├── main.py          # 主入口
-├── Dockerfile       # Docker 构建文件
-└── requirements.txt # Python 依赖
+├── Dockerfile       # Docker构建文件
+└── requirements.txt # Python依赖
 ```
-
-## 环境变量
-
-| 变量名 | 说明 | 默认值 |
-|--------|------|--------|
-| `PORT` | 服务端口 | `8023` |
-| `DATA_DIR` | 数据目录 | `/app/data` |
 
 ## 常见问题
 
@@ -177,11 +220,20 @@ docker-compose up -d
 
 支持 Alist V2 和 V3 版本。
 
+### 4. 忘记密码怎么办？
+
+删除 `data/` 目录下的数据库文件，重启服务会重置为默认密码。
+
 ## 许可证
 
 MIT License
 
+## 致谢
+
+* 原项目：[dr34m-cn/taosync](https://github.com/dr34m-cn/taosync)
+* 感谢原作者[dr34m](https://github.com/dr34m-cn)的优秀工作
+
 ## 项目地址
 
-- GitHub：https://github.com/wuanqicll-del/taosync-new
-- DockerHub：https://hub.docker.com/r/wuanqicll-del/taosync-new
+* GitHub：https://github.com/wuanqicll-del/taosync-new
+* DockerHub：https://hub.docker.com/r/wuanqicll-del/taosync-new
