@@ -2,11 +2,11 @@
   <a href=""><img width="200px" alt="logo" src="logo.ico"/></a>
   <p><em>TaoSync是一个适用于OpenList/AList v3+的自动化同步工具（改进版）。</em></p>
   <div>
-    <a href="https://github.com/wuanqicll-del/taosync-new/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/wuanqicll-del/taosync-new" alt="License" />
+    <a href="https://github.com/wuanqicll/taosync-new/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/wuanqicll/taosync-new" alt="License" />
     </a>
-    <a href="https://github.com/wuanqicll-del/taosync-new/actions/workflows/docker-publish.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/wuanqicll-del/taosync-new/docker-publish.yml?branch=main" alt="Build status" />
+    <a href="https://github.com/wuanqicll/taosync-new/actions/workflows/docker-publish.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/wuanqicll/taosync-new/docker-publish.yml?branch=main" alt="Build status" />
     </a>
     <a href="https://www.python.org/">
       <img src="https://img.shields.io/badge/backend-python-326c9c.svg" alt="Python" />
@@ -14,11 +14,11 @@
     <a href="https://vuejs.org/">
       <img src="https://img.shields.io/badge/frontend-vue-42b883.svg" alt="Vue" />
     </a>
-    <a href="https://github.com/wuanqicll-del/taosync-new/releases">
-      <img src="https://img.shields.io/github/release/wuanqicll-del/taosync-new" alt="latest version" />
+    <a href="https://github.com/wuanqicll/taosync-new/releases">
+      <img src="https://img.shields.io/github/release/wuanqicll/taosync-new" alt="latest version" />
     </a>
-    <a href="https://hub.docker.com/r/wuanqicll-del/taosync-new">
-      <img src="https://img.shields.io/docker/pulls/wuanqicll-del/taosync-new?color=%2348BB78&logo=docker&label=pulls" alt="DockerHub" />
+    <a href="https://hub.docker.com/r/wuanqicll/taosync-new">
+      <img src="https://img.shields.io/docker/pulls/wuanqicll/taosync-new?color=%2348BB78&logo=docker&label=pulls" alt="DockerHub" />
     </a>
   </div>
 </div>
@@ -27,7 +27,7 @@
 
 本项目基于[dr34m-cn/taosync](https://github.com/dr34m-cn/taosync)进行了大幅改进和优化。
 
-**如果好用，请Star！非常感谢！**  [GitHub](https://github.com/wuanqicll-del/taosync-new) [DockerHub](https://hub.docker.com/r/wuanqicll-del/taosync-new)
+**如果好用，请Star！非常感谢！**  [GitHub](https://github.com/wuanqicll/taosync-new) [DockerHub](https://hub.docker.com/r/wuanqicll/taosync-new)
 
 ## 改进内容
 
@@ -94,7 +94,7 @@ docker run -d \
   -p 8023:8023 \
   -v /path/to/data:/app/data \
   --restart unless-stopped \
-  wuanqicll-del/taosync-new:latest
+  wuanqicll/taosync-new:latest
 ```
 
 ### Docker Compose部署
@@ -104,7 +104,7 @@ docker run -d \
 ```yaml
 services:
   taosync:
-    image: wuanqicll-del/taosync-new:latest
+    image: wuanqicll/taosync-new:latest
     container_name: taosync
     ports:
       - "8023:8023"
@@ -205,7 +205,7 @@ taosync/
 
 ```bash
 # 拉取最新镜像
-docker pull wuanqicll-del/taosync-new:latest
+docker pull wuanqicll/taosync-new:latest
 
 # 重启容器
 docker-compose down
@@ -235,5 +235,5 @@ MIT License
 
 ## 项目地址
 
-* GitHub：https://github.com/wuanqicll-del/taosync-new
-* DockerHub：https://hub.docker.com/r/wuanqicll-del/taosync-new
+* GitHub：https://github.com/wuanqicll/taosync-new
+* DockerHub：https://hub.docker.com/r/wuanqicll/taosync-new
