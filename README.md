@@ -1,25 +1,8 @@
 <div align="center">
-  <a href=""><img width="200px" alt="logo" src="logo.ico"/></a>
   <p><em>TaoSync是一个适用于OpenList/AList v3+的自动化同步工具（改进版）。</em></p>
   <div>
-    <a href="https://github.com/wuanqicll/taosync-new/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/wuanqicll/taosync-new" alt="License" />
-    </a>
-    <a href="https://github.com/wuanqicll/taosync-new/actions/workflows/docker-publish.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/wuanqicll/taosync-new/docker-publish.yml?branch=main" alt="Build status" />
-    </a>
-    <a href="https://www.python.org/">
-      <img src="https://img.shields.io/badge/backend-python-326c9c.svg" alt="Python" />
-    </a>
-    <a href="https://vuejs.org/">
-      <img src="https://img.shields.io/badge/frontend-vue-42b883.svg" alt="Vue" />
-    </a>
-    <a href="https://github.com/wuanqicll/taosync-new/releases">
-      <img src="https://img.shields.io/github/release/wuanqicll/taosync-new" alt="latest version" />
-    </a>
-    <a href="https://hub.docker.com/r/wuanqicll/taosync-new">
-      <img src="https://img.shields.io/docker/pulls/wuanqicll/taosync-new?color=%2348BB78&logo=docker&label=pulls" alt="DockerHub" />
-    </a>
+    [![GitHub releases](https://img.shields.io/github/v/release/wuanqicll/taosync-new?logo=github)](https://github.com/wuanqicll/taosync-new)
+    [![Docker pulls](https://img.shields.io/docker/pulls/wuanqicll/taosync-new?logo=docker&logoColor=white)](https://hub.docker.com/r/wuanqicll/taosync-new)
   </div>
 </div>
 
