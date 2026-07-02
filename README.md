@@ -78,7 +78,7 @@ docker run -d \
 ```yaml
 services:
   taosync:
-    build: .
+    image: wuanqicll/taosync-new:latest
     container_name: taosync-new
     restart: always
     network_mode: "bridge"
