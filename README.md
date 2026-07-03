@@ -9,9 +9,32 @@
 
 ---
 
-本项目基于 [dr34m-cn/taosync](https://github.com/dr34m-cn/taosync) 进行了大幅重构和新增功能。
+本项目基于 [dr34m-cn/taosync](https://github.com/dr34m-cn/taosync) 进行了大幅重构和新增功能，欢迎提交bug或者建议
 
 **如果好用，请 Star！非常感谢！** [GitHub](https://github.com/wuanqicll-del/taosync-new) · [DockerHub](https://hub.docker.com/r/wuanqicll/taosync-new)
+
+---
+
+<details>
+<summary><strong>点击展开截图</strong></summary>
+
+<p align="center">
+  <img src="assets/images/1.jpg" alt="截图1" width="800" />
+</p>
+
+<p align="center">
+  <img src="assets/images/2.jpg" alt="截图2" width="800" />
+</p>
+
+<p align="center">
+  <img src="assets/images/3.jpg" alt="截图3" width="800" />
+</p>
+
+<p align="center">
+  <img src="assets/images/4.jpg" alt="截图4" width="800" />
+</p>
+
+</details>
 
 ---
 
@@ -38,7 +61,7 @@
   
 - 针对115网盘特性，增加了个覆盖前删除选项，115会允许同名文件同时存在，当同样文件源目录变了，会同步上去变成新旧文件同时存在，此选项开启后会在同步前先删除目标目录的对应文件再同步
 
-- 增加分页大小设置，解决原项目如果某目录下文件过多会造成只扫到部分的问题，此项默认就行，增加了循环分页，不会出现缺少文件
+- 增加分页大小设置，解决原项目如果某目录下文件过多会造成只扫到部分的问题，此项默认就行，增加了循环分页，不会出现问题
 
 - 增加cron表达式输入后预览具体执行时间
 
@@ -61,12 +84,12 @@
 - 完善的错误处理，稳定可靠
 - 完善的日志，所有错误都会被记录
 - 引擎管理，可以自由增删改查 `OpenList/AList`
-- 作业管理，可以新增/删除/启用/禁用/编辑/手动执行作业
+- 任务管理，可以新增/删除/启用/禁用/编辑/手动执行任务
 - 支持排除项规则，可以排除指定目录或文件不同步
 - 仅新增、全同步、移动三种模式
 - 支持三种同步规则：数据库对比、大小+名称、大小+名称+时间
 - 定时同步支持间隔、`cron`、手动调用
-- 同步进度、总体进度、同步速度、实时同步文件、预估时间等实时可视化查看
+- 同步进度分阶段实时显示
 - 存储可控，合理配置任务记录与日志保留天数
 - 支持通知功能，可在任务成功或失败后发送通知（支持自定义、Server酱、钉钉、企业微信、Lark等）
 
@@ -173,47 +196,6 @@ task_timeout=72
 
 ---
 
-## 技术栈
-
-**后端**
-- Python 3.11
-- Tornado 6.5 Web 框架
-- SQLite 数据库
-- APScheduler 定时任务
-
-**前端**
-- Vue.js 2.7
-- Element UI 2.15
-- Vuex 状态管理
-- Vue Router 路由管理
-
-**部署**
-- Docker 容器化
-- 多架构支持（AMD64/ARM64）
-- GitHub Actions 自动构建
-
----
-
-## 目录结构
-
-```
-taosync/
-├── common/          # 公共工具类
-├── controller/      # API 控制器
-├── frontend/        # 前端源码
-├── mapper/          # 数据库映射
-├── service/         # 业务逻辑
-│   ├── alist/       # Alist API 服务
-│   ├── notify/      # 通知服务
-│   ├── syncJob/     # 同步任务服务
-│   └── system/      # 系统服务
-├── main.py          # 主入口
-├── Dockerfile       # Docker 构建文件
-└── requirements.txt # Python 依赖
-```
-
----
-
 ## 常见问题
 
 **1. 如何更新版本？**
@@ -231,11 +213,7 @@ docker-compose up -d
 
 数据存储在 `/app/data` 目录下的 SQLite 数据库中，备份该目录即可。
 
-**3. 支持哪些 Alist 版本？**
-
-支持 Alist V2 和 V3 版本。
-
-**4. 忘记密码怎么办？**
+**3. 忘记密码怎么办？**
 
 删除 `data/` 目录下的数据库文件，重启服务会重新生成随机密码（查看容器日志获取新密码）。
 
@@ -246,6 +224,11 @@ docker-compose up -d
 MIT License
 
 ---
+## 须知
+
+> [!IMPORTANT]
+> 使用本工具前你必须了解并且会使用openlist或alsit；本工具没有集成，你需要额外部署。
+
 
 ## 致谢
 
