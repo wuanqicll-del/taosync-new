@@ -235,3 +235,15 @@ MIT License
 
 - GitHub：https://github.com/wuanqicll-del/taosync-new
 - DockerHub：https://hub.docker.com/r/wuanqicll/taosync-new
+
+---
+
+## 打赏
+
+如果你觉得这个项目对你有用，可以考虑请我喝杯咖啡或者给我一个 ⭐️。谢谢你的支持！
+
+<p align="center">
+  <img src="assets/images/微信收款码.png" alt="微信收款码" width="200" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/images/支付宝收款码.jpg" alt="支付宝收款码" width="200" />
+</p>
