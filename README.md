@@ -96,14 +96,12 @@
 ### Docker 部署（推荐）
 
 ```bash
-# 创建数据目录（用于持久化数据库和配置）
-mkdir -p /path/to/data
 
 # 运行容器
 docker run -d \
   --name taosync \          # 容器名称
   -p 8023:8023 \            # 端口映射：宿主机端口:容器端口
-  -v /path/to/data:/app/data \  # 数据卷挂载：宿主机目录:容器目录
+  -v ./data:/app/data \  # 数据卷挂载：宿主机目录:容器目录
   --restart unless-stopped \    # 重启策略：除非手动停止，否则总是重启
   wuanqicll/taosync-new:latest  # 镜像名称:标签
 ```
