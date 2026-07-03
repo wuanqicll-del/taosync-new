@@ -30,10 +30,6 @@
   <img src="assets/images/3.jpg" alt="截图3" width="800" />
 </p>
 
-<p align="center">
-  <img src="assets/images/4.jpg" alt="截图4" width="800" />
-</p>
-
 </details>
 
 ---
